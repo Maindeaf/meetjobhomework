@@ -1,0 +1,103 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>0823homework</title>
+	<link href = "0823homework.css" rel = "stylesheet">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+	</script>
+	<script>
+		$(document).ready(function()
+		{
+			$(".submenu").hide();
+			$("#sliderpart").hide();
+			$("#menulist li").hover(function()
+			{
+				$(this).find(".submenu").slideDown("fast");
+				$(this).find("a:first").addClass("active");
+			},function()
+			{
+				$(this).find(".submenu").fadeOut("fast");
+				$(this).find("a").removeClass("active");
+			})
+			$("#showslider").click(function()
+				{
+					$("#sliderpart").slideToggle("slow");
+				});
+		});
+		function agecheckup()
+		{
+			var age = $("#age").val();
+			if (age < 15 || age > 50)
+			{
+				alert("符合");
+			}
+			else
+			{
+				alert("不符合");
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id = "main">
+		<div id = "titlebar">
+		</div>
+		<div id = "menubar">
+			<ul id = "menulist">
+				<li><a href = "#">奇數</a>
+					<ul class = "submenu">
+						<li><a href = "#">1</a></li>
+						<li><a href = "#">3</a></li>
+						<li><a href = "#">5</a></li>
+						<li><a href = "#">7</a></li>
+						<li><a href = "#">9</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">偶數</a>
+					<ul class = "submenu">
+						<li><a href = "#">2</a></li>
+						<li><a href = "#">4</a></li>
+						<li><a href = "#">6</a></li>
+						<li><a href = "#">8</a></li>
+						<li><a href = "#">10</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">質數</a>
+					<ul class = "submenu">
+						<li><a href = "#">2</a></li>
+						<li><a href = "#">3</a></li>
+						<li><a href = "#">5</a></li>
+						<li><a href = "#">7</a></li>
+						<li><a href = "#">11</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">合數</a>
+					<ul class = "submenu">
+						<li><a href = "#">4</a></li>
+						<li><a href = "#">6</a></li>
+						<li><a href = "#">8</a></li>
+						<li><a href = "#">9</a></li>
+						<li><a href = "#">10</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">聯絡我們</a></li>
+			</ul>
+		</div>
+		<div id = "maincontent">
+		</div>
+		<div id = "buildinslider">
+			<div id = "alwaysshowingpart">
+				<button id = "showslider">顯示更多</button>
+			</div>
+			<div id = "sliderpart">
+			</div>
+		</div>
+	</div>
+	<div id = "bottom">
+		<form id = "agecheckup">
+			<font color="white">年齡:</font><input type = "text" id = "age" name = "age" />
+			<button onclick = "agecheckup()">輸入</button>
+		</form>
+	</div>
+</body>
+</html>
