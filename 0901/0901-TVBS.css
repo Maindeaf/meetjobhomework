@@ -1,177 +1,257 @@
-<html>
-<head>
-	<meta charst = "utf-8">
-	<title>0901-TVBS</title>
-	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
-	</script>
-	<script>
-		$(document).ready(function()
-		{
-			$(".submenu").hide();
-			$("#menulist li").hover(function()
-			{
-				$(this).find(".submenu").slideDown("slow")
-				$(this).find("a:first").addClass("active")
-			},function()
-			{
-				$(this).find(".submenu").fadeOut("slow");
-				$(this).find("a").removeClass("active");
-			});
-			var picslidingcount = 0;
-			var firstpicclone = $("#newssticker .animatedsticker li").first().clone();
-			$("#newssticker .animatedsticker").append(firstpicclone);
-			var piccount = $("#newssticker .animatedsticker li").length;
-			var animation = setInterval(function()
-				{
-					picslidingcount++;
-					move();
-				},2000);
-			function move()
-			{
-				if (picslidingcount == piccount)
-					{
-						$("#newssticker .animatedsticker").css({left:0});
-						picslidingcount = 1;
-					}
-					if (picslidingcount == -1)
-					{
-						$("#newssticker .animatedsticker").css({left:-(piccount-1)*900});
-						picslidingcount = piccount -2
-					}
-					$("#newssticker .animatedsticker").stop().animate({left:-picslidingcount*900},900);
-			}
-			$("#newssticker").hover(function()
-				{
-					clearInterval(animation);
-				},function()
-				{
-					animation = setInterval(function()
-					{
-						picslidingcount++
-						move();
-					},2000);
-				});
-		});
-	</script>
-	<link href = "0901-TVBS.css" rel = "stylesheet">
-<body>
-	<div id = "logobar">
-		<div id = "logo">
-			<img src = "img/homeworkLogo.jpg">
-		</div>
-		<div id = "searchengine">
-			<a id = "englishpage" href = "#" target = "_self">EN</a>
-			<button id = "searchinitiated"><img src = "https://cc.tvbs.com.tw/portal_production/2022/images/search_btn.svg"></button>
-			<input class = "searchenginebar" type = "search" id = "searchengine" name = "searchengine" placeholder="關鍵字" />
-		</div>
-	</div>
-	<div id = "menubar">
-		<ul id = "menulist">
-			<li class = "menuoption"><a href="#">1</a></li>
-			<li class = "menuoption"><a href="#">2</a></li>
-			<li class = "menuoption"><a href="#">3</a></li>
-			<li class = "menuoption"><a href="#">4</a></li>
-			<li class = "menuoption"><a href="#">5</a></li>
-			<li class = "menuoption"><a href="#">6</a>
-				<ul class = "submenu">
-					<li><a href = "#">1</a></li>
-					<li><a href = "#">2</a></li>
-					<li><a href = "#">3</a></li>
-					<li><a href = "#">4</a></li>
-					<li><a href = "#">5</a></li>
-					<li><a href = "#">6</a></li>
-					<li><a href = "#">7</a></li>
-					<li><a href = "#">8</a></li>
-					<li><a href = "#">9</a></li>
-				</ul>	
-			</li>
-			<li class = "menuoption"><a href="#">7</a>
-				<ul class = "submenu">
-					<li><a href = "#">1</a></li>
-					<li><a href = "#">2</a></li>
-					<li><a href = "#">3</a></li>
-					<li><a href = "#">4</a></li>
-					<li><a href = "#">5</a></li>
-					<li><a href = "#">6</a></li>
-					<li><a href = "#">7</a></li>
-					<li><a href = "#">8</a></li>
-					<li><a href = "#">9</a></li>
-					<li><a href = "#">10</a></li>
-				</ul>	
-			</li>
-			<li class = "menuoption"><a href="#">8</a></li>
-			<li class = "menuoption"><a href="#">9</a></li>
-			<li class = "menuoption"><a href="#">10</a>
-				<ul class = "submenu">
-					<li><a href = "#">1</a></li>
-					<li><a href = "#">2</a></li>
-					<li><a href = "#">3</a></li>
-					<li><a href = "#">4</a></li>
-				</ul>
-			</li>
-			<li class = "menuoption"><a href="#">11</a>
-				<ul class = "submenu">
-					<li><a href = "#">1</a></li>
-					<li><a href = "#">2</a></li>
-					<li><a href = "#">3</a></li>
-					<li><a href = "#">4</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<div id = "main">
-		<div id="headlineboard">
-			<div id="newssticker">
-				<ul class = "animatedsticker">
-					<li><img src = "img/1.jpg"></li>
-					<li><img src = "img/2.jpg"></li>
-					<li><img src = "img/3.jpg"></li>
-					<li><img src = "img/4.jpg"></li>
-				</ul>
-			</div>
-			<div id ="picclipboard">
-				<div class="clippedpic1">
-					<span>顏色</span>
-					<h3>這是紫色</h3>
-					<img src = "img/5.jpg">
-				</div>
-				<div class="clippedpic2">
-					<span>顏色</span>
-					<h3>這是白色</h3>
-					<img src = "img/6.jpg">
-				</div>
-				<div class="clippedpic3">
-					<span>顏色</span>
-					<h3>這是灰色</h3>
-					<img src = "img/7.jpg">
-				</div>
-			</div>
-		</div>
-		<div  id="secondpagenews">
-			<div class = "secondtitle">
-				<a href = "#">這是標題</a>
-			</div>
-			<div id = "breakingnewssection">
-				<div class = "statusandlinkline">
-					<a href = "#">
-						<div class = "weathertext">
-							<p>今日天氣：台北市 24º - 28º ｜</p>
-						</div>
-						<div class = "weatherimg">
-							<img src = "https://cc.tvbs.com.tw/img/upload/2022/01/19/20220119124537-e84842ab.png">
-						</div>
-					</a>
-				</div>
-				<div class="secondpagenewsclippedpic" >
-				</div>
-				<div class="secondpagenewsclippedpic" >
-				</div>
-				<div class="secondpagesidetextnews">
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id = "footer">
-	</div>
-</body>
-</html>
+body
+{
+	width: 100%;
+	height: 100%;
+	margin: 0px auto;
+}
+*
+{
+	box-sizing: border-box;
+}
+#logobar
+{
+	height :100px;
+	width: 100%;
+}
+#logo
+{
+	margin-left: 18%;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	height: 50px;
+	width: 100px;
+	float: left;
+}
+#searchengine
+{
+	float: right;
+	margin-right: 18%;
+	height: 100%;
+}
+#searchengine .searchenginebar
+{
+	height: 35px;
+	width: 236px;
+	font-size: 10px;
+	margin-right: 5px;
+	margin-top: 30px;
+	border-radius: 20px;
+	border: 1px solid;
+}
+#searchengine #searchinitiated
+{
+	float: right;
+	background-color: white;
+	border: none;
+	margin-right: 5px;
+	margin-top: 27px;
+}
+#searchengine #englishpage
+{
+	float: right;
+	display :inline-block;
+	margin-right: 50px;
+	margin-top: 29px;
+	background-color: blue;
+	text-decoration: none;
+	text-align: center;
+	font-size: 22px;
+	color: white;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	vertical-align: middle;
+	line-height: 35px;
+}
+#menubar
+{
+	width: 100%;
+	height: 45px;
+	background-color: blue;
+	padding-left: 343px;
+}
+#menubar #menulist
+{
+	min-width: 1200px;
+	align-items: center;
+}
+#menulist, #menulist ul
+{
+	list-style: none;
+	padding:0px;
+	margin:0px;
+}
+#menulist li
+{
+	float: left;
+	display: block;
+	width: 109px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background-color: red;
+	color: white;
+}
+#menulist li ul
+{
+	position: absolute;
+	left:auto;
+	width:109px;
+	z-index: 10;
+}
+#menulist a
+{
+	display: inline-block;
+	text-decoration:none;
+	text-align: center;
+	color: white;
+	border-radius: 5px;
+	height: 37;
+	width: 79;
+	margin: 4px 15px;
+	line-height: 37px;
+}
+#headlineboard
+{
+	width: 100%;
+	height: 506px;
+	background-color: black;
+}
+#newssticker
+{
+	width: 900px;
+	height: 100%;
+	float: left;
+	margin-left: 343px;
+	position: relative;
+	overflow: hidden;
+}
+.animatedsticker
+{
+	list-style: none;
+	width: 4500px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+#newssticker li
+{
+	float: left;
+}
+.animatedsticker img
+{
+	width: 900px;
+	height: 506px;
+}
+#picclipboard
+{
+	width: 270px;
+	height: 100%;
+	float: left;
+	margin-left: 29px;
+	position: relative;
+}
+#picclipboard h3
+{
+	display: inline;
+	color: blue;
+	position: absolute;
+	font-size: 18px;
+	line-height: 24px;
+	margin-top: 40%;
+	margin-left: 3%;
+}
+#picclipboard span
+{
+	color: red;
+	position: absolute;
+	display: block;
+	border: 1px solid black;
+	margin-top: 30%;
+	margin-left: 3%;
+	border: 1px solid black;
+	border-radius: 3px;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: center;
+	padding: 3px 5px;
+}
+.clippedpic1
+{
+	width: 100%;
+	height: 151px;
+}
+.clippedpic2
+{
+	width: 100%;
+	height: 151px;
+	margin-top: 26.5px;
+}
+.clippedpic3
+{
+	width: 100%;
+	height: 151px;
+	margin-top: 26.5px;
+}
+#secondpagenews
+{
+	width: 100%;
+	min-height: 600px;
+}
+.secondtitle
+{
+	width: 100%;
+	height: 54px;
+	padding-top: 25px;
+	text-align: center;
+}
+.secondtitle a
+{
+	line-height: 52px;
+	font-size: 30px;
+	font-weight: bold;
+	border-bottom: 2px solid black;
+	text-decoration: none;
+	margin: 0;
+}
+#breakingnewssection
+{
+	width: 100%;
+	min-height: 500px;
+}
+.statusandlinkline
+{
+	width: 1200px;
+	height: 71px;
+}
+.secondpagenewsclippedpic
+{
+	float: left;
+}
+.secondpagesidetextnews
+{
+	float: left;
+}
+.statusandlinkline a
+{
+	text-decoration: none;
+}
+.statusandlinkline .weathertext
+{
+	float: left;
+}
+.statusandlinkline .weatherimg
+{
+	float: left;
+	width: 30px;
+	height: 30px;
+	align-items: center;
+}
+.statusandlinkline .weatherimg img
+{
+	object-fit: contain;
+	max-width: 30px;
+	max-height: 30px;
+}
